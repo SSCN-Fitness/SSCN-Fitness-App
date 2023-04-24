@@ -29,7 +29,7 @@ def load_config():
     config['UPLOADED_PHOTOS_DEST'] = "App/uploads"
     config["JWT_TOKEN_LOCATION"] = ["headers"]
     config['PAYPAL_CLIENT_ID'] = 'Afvt_KPFyp5JNthwGwxwVQ5yhbx9xavzNE5M9I1ScoZx7Z2STSPzyaDLtgQYvxAhzsWbhkuS_SDEGhhc'
-    confif['PAYPAL_CLIENT_SECRET'] = 'EPYFY_2gOAIXO6OZc9KYgAMc-epWClcl2jD3rbzuZQCnB4uWSYv60HUH4C6zF8yGIcuRvyqVZpjwvPzv'
+    config['PAYPAL_CLIENT_SECRET'] = 'EPYFY_2gOAIXO6OZc9KYgAMc-epWClcl2jD3rbzuZQCnB4uWSYv60HUH4C6zF8yGIcuRvyqVZpjwvPzv'
     return config
 
 config = load_config()
