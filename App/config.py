@@ -14,9 +14,12 @@ def load_config():
     else:
         config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')
         config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-        config['RAWG_TOKEN'] = os.environ.get('RAWG_TOKEN')
         config['DEBUG'] = config['ENV'].upper() != 'PRODUCTION'
         delta = int(os.environ.get('JWT_ACCESS_TOKEN_EXPIRES', 7))
+
+        # Define PayPal credentials
+        config['PAYPAL_CLIENT_ID'] = os.environ.get('PAYPAL_CLIENT_ID')
+        config['PAYPAL_CLIENT_SECRET'] = os.environ.get('PAYPAL_CLIENT_SECRET')
 
     config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(days=int(delta))
     config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -25,6 +28,8 @@ def load_config():
     config['PREFERRED_URL_SCHEME'] = 'https'
     config['UPLOADED_PHOTOS_DEST'] = "App/uploads"
     config["JWT_TOKEN_LOCATION"] = ["headers"]
+    config['PAYPAL_CLIENT_ID'] = 'Afvt_KPFyp5JNthwGwxwVQ5yhbx9xavzNE5M9I1ScoZx7Z2STSPzyaDLtgQYvxAhzsWbhkuS_SDEGhhc'
+    confif['PAYPAL_CLIENT_SECRET'] = 'EPYFY_2gOAIXO6OZc9KYgAMc-epWClcl2jD3rbzuZQCnB4uWSYv60HUH4C6zF8yGIcuRvyqVZpjwvPzv'
     return config
 
 config = load_config()
