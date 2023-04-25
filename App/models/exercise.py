@@ -12,3 +12,14 @@ class Exercise(db.Model):
     duration = db.Column(db.Float)
     workout_id = db.Column(db.Integer, db.ForeignKey('workout.id'))
     workout = db.relationship('Workout', backref=db.backref('exercises', lazy=True))
+
+def get_json(self):
+    return {
+        'id': self.id,
+        'name': self.name,
+        'sets': self.sets,
+        'reps': self.reps,
+        'weight': self.weight,
+        'duration': self.duration,
+        'workout_id': self.workout_id
+    }

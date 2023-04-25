@@ -13,7 +13,15 @@ class Payment(Base):
     return_url = Column(String(255), nullable=False)
     cancel_url = Column(String(255), nullable=False)
 
-    
+    def get_json(self):
+        return{
+        'id': self.id,
+        'amount': self.amount,
+        'currency': self.currency,
+        'description': self.description,
+        'return_url': self.return_url,
+        'cancel_url': self.cancel_url
+    }
 
 
     

@@ -12,6 +12,17 @@ class Post(Base):
     likes = Column(Integer, default=0)
     comments = relationship('Comment', backref='post', lazy='dynamic')
 
+def get_json(self):
+    return {
+        'post_id': self.post_id,
+        'post_title': self.post_title,
+        'post_body': self.post_body,
+        'timestamp': self.timestamp.isoformat(),
+        'author_id': self.author_id,
+        'likes': self.likes,
+        'comments': [c.get_json() for c in self.comments],
+    }
+
 
 
 

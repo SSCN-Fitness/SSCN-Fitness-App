@@ -12,3 +12,16 @@ class Workout(db.Model):
 
     def __repr__(self):
         return f"<Workout {self.name}>"
+
+
+    def get_json(self):
+        exercises_list = [e.get_json() for e in self.exercises]
+        return {
+            'id': self.id,
+            'name': self.name,
+            'duration': self.duration,
+            'calories_burned': self.calories_burned,
+            'user_id': self.user_id,
+            'user': self.user.get_json(),
+            'exercises': exercises_list
+        }

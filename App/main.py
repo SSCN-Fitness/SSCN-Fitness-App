@@ -1,4 +1,5 @@
 import os
+import db
 from flask import Flask
 from flask_login import LoginManager, current_user
 from flask_uploads import DOCUMENTS, IMAGES, TEXT, UploadSet, configure_uploads

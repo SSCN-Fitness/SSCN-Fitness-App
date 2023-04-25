@@ -13,3 +13,13 @@ class Comment(Base):
     post = relationship('Post', backref='comments')
     user_id = Column(Integer, ForeignKey('users.id'))
     user = relationship('User')
+
+
+def get_json(self):
+        return {
+            'id': self.id,
+            'body': self.body,
+            'timestamp': self.timestamp.isoformat(),
+            'post_id': self.post_id,
+            'user_id': self.user_id
+        }
